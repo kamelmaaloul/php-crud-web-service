@@ -1,0 +1,57 @@
+
+Api Store 
+
+
+1- Insert product
+
+	*url: /products.php
+	*type: post
+
+	*param:
+
+	action = insert
+	name = ....
+	description = ....
+	price = ....
+	img = ....
+	quantity = ....
+	
+2- update product
+
+	*url: /products.php
+	*type: post
+
+	*param:
+
+	action = update
+	id = .... Ex: 6
+	name = ....
+	description = ....
+	price = ....
+	img = ....
+	quantity = ....
+
+3- delete product
+
+	*url: /products.php
+	*type: post
+
+	*param:
+
+	action = delete
+	id = .... Ex: 6
+
+4- get product
+
+	*url: /products.php?id=6 Ex: 6
+	*type: get
+
+	*param:
+
+	id = .... Ex: 6
+	
+4- get all products
+
+	*url: /products.php?all
+	*type: get
+
