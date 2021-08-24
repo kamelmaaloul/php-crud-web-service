@@ -240,7 +240,7 @@ function product_ressource($row)
     $data['name'] = $row['name'];
     $data['description'] = $row['description'];
     $data['price'] = $row['price'];
-    $data['img'] = get_host().'/img/'.$row['img'];
+    $data['img'] = 'http://' . get_host().'/storetest/img/'.$row['img'];
     $data['quantity'] = $row['quantity'];
 
     return $data;

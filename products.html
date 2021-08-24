@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <title>Products</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Test Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Dashbord</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Products</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="content">
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header">Products</div>
+
+                <div class="card-body">
+                    <button class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#add_product">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-seam"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"
+                />
+              </svg>
+              Add
+            </button>
+
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="add_product" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add_product_frm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="text" class="form-control" id="image" name="img" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" name="description" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="price" name="price" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+                    <button type="button" class="btn btn-primary" onclick="add_product();">
+              Add
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="edit_product" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit_product_frm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="text" class="form-control" id="image" name="image" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" name="description" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="price" name="price" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+                    <button type="button" class="btn btn-warning">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="detail_product" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="pname" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 d-flex">
+                        <img id="pimage" src="" width="200" height="200" />
+
+                        <div class="p-3">
+                            <div class="mb-3">
+                                <h5 for="price" class="form-label">Price</h5>
+                                <h6 id="pprice"></h6>
+                            </div>
+
+                            <div class="mb-3">
+                                <h5 for="quantity" class="form-label">Quantity</h5>
+                                <h6 id="pquantity"></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <h5 for="description" class="form-label">Description</h5>
+                        <p id="pdescription"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-10 p-3" style="z-index: 2000">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast_title"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast_msg"></div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        get_products();
+
+        async function get_products() {
+            const url = "http://127.0.0.1/storetest/products.php?all";
+
+            const response = await fetch(url, {
+                method: "GET",
+            });
+
+            const products = await response.json();
+
+            var table = document.getElementsByTagName("table")[0];
+
+            if (products.result == 0) {
+                if (products.data.lenght != 0) {
+                    products.data.map(function(p) {
+                        const row = table.insertRow(-1);
+                        const td0 = row.insertCell(0);
+                        const td1 = row.insertCell(1);
+                        const td2 = row.insertCell(2);
+                        const td3 = row.insertCell(3);
+                        const td4 = row.insertCell(4);
+                        const td5 = row.insertCell(5);
+
+                        td0.innerHTML = p.id;
+                        td1.innerHTML =
+                            '<img src="' +
+                            p.img +
+                            '" alt="" style="width: 100px; height: 100px;">';
+                        td2.innerHTML = p.name;
+                        td3.innerHTML = p.price + " DA";
+                        td4.innerHTML = p.quantity;
+                        td5.innerHTML =
+                            '<button onclick="get_product(' +
+                            p.id +
+                            ');" class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">' +
+                            '<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>' +
+                            '<path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>' +
+                            "</svg></button> " +
+                            '<button class="btn btn-warning btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">' +
+                            '<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>' +
+                            '<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>' +
+                            "</svg></button> " +
+                            '<button onclick="delete_product(' +
+                            p.id +
+                            ');" class="btn btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">' +
+                            '<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>' +
+                            '<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>' +
+                            "</svg></button> ";
+                    });
+                }
+            }
+        }
+
+        async function get_product(id) {
+            const url = "http://127.0.0.1/storetest/products.php?id=" + id;
+
+            const response = await fetch(url, {
+                method: "GET",
+            });
+
+            const product = await response.json();
+
+            const modal = new bootstrap.Modal(
+                document.getElementById("detail_product")
+            );
+
+            document.getElementById("pname").innerText = product.data.name;
+            document.getElementById("pimage").setAttribute("src", product.data.img);
+            document.getElementById("pdescription").innerText =
+                product.data.description;
+            document.getElementById("pprice").innerText = product.data.price;
+            document.getElementById("pquantity").innerText = product.data.quantity;
+
+            modal.show();
+        }
+
+        async function add_product() {
+            const url = "http://127.0.0.1/storetest/products.php";
+
+            var add_form = new FormData(document.getElementById("add_product_frm"));
+            add_form.append("action", "insert");
+
+            const response = await fetch(url, {
+                method: "POST",
+                body: add_form,
+            });
+
+            const product = await response.json();
+
+            const toast = new bootstrap.Toast(document.getElementById("toast"));
+
+            document
+                .getElementById("toast")
+                .setAttribute(
+                    "class",
+                    product.result == 0 ? "toast bg-success" : "toast bg-danger"
+                );
+            document.getElementById("toast_title").innerText =
+                product.result == 0 ? "Done" : "Error";
+            document.getElementById("toast_msg").innerText = product.message;
+            toast.show();
+
+            var modal_add_product = document.getElementById("add_product");
+            var modal = bootstrap.Modal.getInstance(modal_add_product);
+
+            if (product.result == 0) {
+
+                var table = document.getElementsByTagName("table")[0];
+                const row = table.insertRow(-1);
+                const td0 = row.insertCell(0);
+                const td1 = row.insertCell(1);
+                const td2 = row.insertCell(2);
+                const td3 = row.insertCell(3);
+                const td4 = row.insertCell(4);
+                const td5 = row.insertCell(5);
+
+                td0.innerHTML = '-';
+                td1.innerHTML =
+                    '<img src="' +
+                    add_form.get('img') +
+                    '" alt="" style="width: 50px; height: 50px;">';
+                td2.innerHTML = add_form.get('name');
+                td3.innerHTML = add_form.get('price') + " DA";
+                td4.innerHTML = add_form.get('quantity');
+                td5.innerHTML =
+                    '<button onclick="get_product(' +
+
+                    ');" class="btn btn-primary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">' +
+                    '<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>' +
+                    '<path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>' +
+                    "</svg></button> " +
+                    '<button class="btn btn-warning btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">' +
+                    '<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>' +
+                    '<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>' +
+                    "</svg></button> " +
+                    '<button onclick="delete_product(' +
+
+                    ');" class="btn btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">' +
+                    '<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>' +
+                    '<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>' +
+                    "</svg></button> ";
+
+                modal.hide();
+            }
+        }
+
+        async function edit_product(id) {
+            const url = "http://127.0.0.1/storetest/products.php";
+
+            var add_form = new FormData(document.getElementById("edit_product_frm"));
+            add_form.append("id", id);
+            add_form.append("action", "update");
+
+            const response = await fetch(url, {
+                method: "POST",
+                body: add_form,
+            });
+
+            const product = await response.json();
+
+            const toast = new bootstrap.Toast(document.getElementById("toast"));
+
+            document
+                .getElementById("toast")
+                .setAttribute(
+                    "class",
+                    product.result == 0 ? "toast bg-success" : "toast bg-danger"
+                );
+            document.getElementById("toast_title").innerText =
+                product.result == 0 ? "Done" : "Error";
+            document.getElementById("toast_msg").innerText = product.message;
+            toast.show();
+
+            var modal_add_product = document.getElementById("add_product");
+            var modal = bootstrap.Modal.getInstance(modal_add_product);
+
+            if (product.result == 0) {
+                modal.hide();
+            }
+        }
+
+        async function delete_product(id) {
+            const url = "http://127.0.0.1/storetest/products.php";
+
+            var delete_form = new FormData();
+            delete_form.append("id", id);
+            delete_form.append("action", "delete");
+
+            const response = await fetch(url, {
+                method: "POST",
+                body: delete_form,
+            });
+
+            const product = await response.json();
+
+            const toast = new bootstrap.Toast(document.getElementById("toast"));
+
+            document
+                .getElementById("toast")
+                .setAttribute(
+                    "class",
+                    product.result == 0 ? "toast bg-success" : "toast bg-danger"
+                );
+            document.getElementById("toast_title").innerText =
+                product.result == 0 ? "Done" : "Error";
+            document.getElementById("toast_msg").innerText = product.message;
+            toast.show();
+        }
+    </script>
+</body>
+
+</html>
